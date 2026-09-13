@@ -1,0 +1,90 @@
+---
+layout: layouts/base.njk
+title: Services
+description: Explore complete, personalized dental care for every stage of your smile at Dental City.
+permalink: /services/
+---
+{% from "partials/macros.njk" import hero, eyebrow, pillar, clinicalCard, ctaBand, locationBand, photoStrip, icon with context %}
+
+{{ hero("Your City, ST", "<strong>Comprehensive</strong> Dental Services", "Explore complete, personalized dental care for every stage of your smile at Dental City.", "/assets/images/photos/clinic-equipment.jpg") }}
+
+{{ photoStrip(["/assets/images/photos/dentist-tools.jpg", "/assets/images/photos/equipment-table.jpg", "/assets/images/photos/dentist-patient.jpg", "/assets/images/photos/exam-closeup.jpg", "/assets/images/photos/patient-chair.jpg"]) }}
+
+<section class="section-pad">
+  <div class="mx-auto max-w-container px-6 md:px-10">
+    {{ eyebrow("01", "Overview") }}
+    <div class="mt-10 grid gap-10 md:grid-cols-2 md:gap-16">
+      <h2 data-reveal class="font-display text-3xl font-medium leading-snug text-ink-900 md:text-4xl">All Your Dental Needs. One Trusted Team.</h2>
+      <div data-reveal class="flex flex-col gap-4 text-ink-700">
+        <p>Finding a dental office that can handle everything — from routine care to advanced treatments — makes life easier. At Dental City, we provide comprehensive dental services designed to support your oral health, appearance, and overall comfort.</p>
+        <p>Led by {{ site.doctor.name }}, our team focuses on delivering high-quality care in a welcoming, patient-centered environment — so you can feel confident in every step of your dental journey.</p>
+      </div>
+    </div>
+    <div class="mt-12 grid grid-cols-3 gap-4">
+      <img data-reveal src="/assets/images/photos/dentist-tools.jpg" alt="" class="h-56 w-full rounded-[2.5rem] object-cover md:h-72">
+      <img data-reveal src="/assets/images/photos/equipment-table.jpg" alt="" class="h-56 w-full rounded-[2.5rem] object-cover md:h-72">
+      <img data-reveal src="/assets/images/photos/dentist-patient.jpg" alt="" class="h-56 w-full rounded-[2.5rem] object-cover md:h-72">
+    </div>
+  </div>
+</section>
+
+<section class="section-pad bg-cream-100">
+  <div class="mx-auto max-w-container px-6 md:px-10">
+    {{ eyebrow("02", "Our Approach") }}
+    <div class="mt-10 max-w-2xl">
+      <h2 data-reveal class="font-display text-3xl font-medium text-ink-900 md:text-4xl">Personalized Care for Every Smile</h2>
+      <p data-reveal class="mt-4 text-ink-700">No two patients are the same. Whether you're maintaining a healthy smile, addressing a specific concern, or planning a full transformation, we tailor your care to fit your needs and goals.</p>
+    </div>
+    <div class="mt-10 grid gap-6 sm:grid-cols-2 md:grid-cols-5">
+      {{ pillar("shield", "Preventive care to avoid future issues") }}
+      {{ pillar("chat", "Clear, honest recommendations") }}
+      {{ pillar("clock", "Plans that fit your lifestyle") }}
+      {{ pillar("heart", "Comfortable, judgment-free experience") }}
+      {{ pillar("star", "Long-term results you can rely on") }}
+    </div>
+  </div>
+</section>
+
+<section class="section-pad bg-primary-900">
+  <div class="mx-auto max-w-container px-6 md:px-10">
+    {{ eyebrow("03", "Clinical Focus", true) }}
+    <div class="mt-10 max-w-2xl">
+      <h2 data-reveal class="font-display text-3xl font-medium text-cream-50 md:text-4xl">Comprehensive Care, Backed by Experience</h2>
+      <p data-reveal class="mt-4 text-cream-50/80">As the lead provider at Dental City, {{ site.doctor.name }} offers a full range of dental services, allowing patients to receive consistent care in one place.</p>
+    </div>
+
+    <div class="mt-10 flex flex-col gap-6">
+      <div class="grid gap-6 md:grid-cols-2">
+        {{ clinicalCard("tooth", "Preventive", "General Dentistry", "Preventive care including exams, cleanings, and early treatment to keep your smile healthy and on track.", "/services/", "banner", "/assets/images/photos/dentist-tools.jpg") }}
+        {{ clinicalCard("sparkle", "Aesthetic", "Cosmetic Dentistry", "Enhance the appearance of your smile with treatments designed for natural, confident results.", "/services/") }}
+      </div>
+      <div class="grid gap-6 md:grid-cols-2">
+        {{ clinicalCard("layers", "Repair", "Restorative Dentistry", "Repair damaged or missing teeth to restore function, comfort, and confidence.", "/services/") }}
+        {{ clinicalCard("tool", "Advanced", "Oral Surgery", "Advanced procedures performed with precision and a focus on comfort and recovery.", "/services/", "banner", "/assets/images/photos/dentist-patient.jpg") }}
+      </div>
+      <div class="grid gap-6 md:grid-cols-2">
+        {{ clinicalCard("shield", "Targeted", "Specialty Services", "Targeted treatments for conditions like TMJ, sleep apnea, gum disease, and more.", "/services/") }}
+        {{ clinicalCard("wand", "Innovation", "Dental Technology", "Modern tools and advanced imaging for more accurate, efficient, and comfortable care.", "/services/") }}
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section-pad bg-cream-100">
+  <div class="mx-auto max-w-container px-6 md:px-10">
+    {{ eyebrow("04", "Long-Term Care") }}
+    <div class="mt-10 grid items-center gap-10 md:grid-cols-2 md:gap-16">
+      <div data-reveal>
+        <h2 class="font-display text-3xl font-medium text-ink-900 md:text-4xl">Care That Grows with You</h2>
+        <p class="mt-4 text-ink-700">Your dental needs change over time — and we're here for all of it. From routine visits to more advanced care, having one trusted team makes it easier to stay consistent and confident in your oral health.</p>
+        <p class="mt-3 text-ink-700">At Dental City, we build long-term relationships with our patients, helping you stay proactive and informed every step of the way.</p>
+        <a href="{{ site.bookingUrl }}" class="btn-primary mt-6">Request an Appointment</a>
+      </div>
+      <img data-reveal src="/assets/images/photos/dentist-patient.jpg" alt="" class="aspect-[4/3] w-full rounded-[2.5rem] object-cover">
+    </div>
+  </div>
+</section>
+
+{{ locationBand("05") }}
+
+{{ ctaBand("Start Your Dental Care Journey", "Whether you're due for a checkup or exploring treatment options, we're here to help you take the next step with confidence.") }}

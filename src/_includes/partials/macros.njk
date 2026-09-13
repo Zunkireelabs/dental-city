@@ -1,0 +1,175 @@
+{% macro icon(name, class="w-6 h-6") %}
+  {% if name == "shield" %}
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" class="{{ class }}"><path stroke-linecap="round" stroke-linejoin="round" d="M12 3l7 3v6c0 4.5-3 7.5-7 9-4-1.5-7-4.5-7-9V6l7-3z"/></svg>
+  {% elif name == "chat" %}
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" class="{{ class }}"><path stroke-linecap="round" stroke-linejoin="round" d="M4 5h16v10H8l-4 4V5z"/></svg>
+  {% elif name == "heart" %}
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" class="{{ class }}"><path stroke-linecap="round" stroke-linejoin="round" d="M12 20s-7-4.35-9.5-8.5C.5 8 2.5 5 5.8 5c1.9 0 3.3 1 4.2 2.3C11 6 12.3 5 14.2 5c3.3 0 5.3 3 3.3 6.5C15 15.65 12 20 12 20z"/></svg>
+  {% elif name == "sparkle" %}
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" class="{{ class }}"><path stroke-linecap="round" stroke-linejoin="round" d="M12 3v4M12 17v4M4 12h4M16 12h4M6 6l2.5 2.5M15.5 15.5L18 18M18 6l-2.5 2.5M8.5 15.5L6 18"/></svg>
+  {% elif name == "tool" %}
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" class="{{ class }}"><path stroke-linecap="round" stroke-linejoin="round" d="M14.5 6.5l3-3 3 3-3 3M14.5 6.5L5 16v3h3l9.5-9.5M14.5 6.5l3 3"/></svg>
+  {% elif name == "clock" %}
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" class="{{ class }}"><circle cx="12" cy="12" r="9"/><path stroke-linecap="round" stroke-linejoin="round" d="M12 7v5l3 3"/></svg>
+  {% elif name == "check" %}
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" class="{{ class }}"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
+  {% elif name == "pin" %}
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" class="{{ class }}"><path stroke-linecap="round" stroke-linejoin="round" d="M12 21s7-5.5 7-11a7 7 0 10-14 0c0 5.5 7 11 7 11z"/><circle cx="12" cy="10" r="2.5"/></svg>
+  {% elif name == "tooth" %}
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" class="{{ class }}"><path stroke-linecap="round" stroke-linejoin="round" d="M12 3c-3 0-5 2-5 5 0 2 .5 3.5 1 6 .4 2 .6 4.5 2 4.5s1.3-3 1.5-4.5c.1-.8.5-1.5 1-1.5s.9.7 1 1.5c.2 1.5.1 4.5 1.5 4.5s1.6-2.5 2-4.5c.5-2.5 1-4 1-6 0-3-2-5-5-5z"/></svg>
+  {% elif name == "wand" %}
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" class="{{ class }}"><path stroke-linecap="round" stroke-linejoin="round" d="M4 20l10-10M14 4l1.5 1.5M18 8l1.5 1.5M16 3l1 1M20 7l1 1"/></svg>
+  {% elif name == "layers" %}
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" class="{{ class }}"><path stroke-linecap="round" stroke-linejoin="round" d="M12 3l8 4-8 4-8-4 8-4zM4 12l8 4 8-4M4 16l8 4 8-4"/></svg>
+  {% elif name == "scissors" %}
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" class="{{ class }}"><circle cx="6" cy="6" r="2.2"/><circle cx="6" cy="18" r="2.2"/><path stroke-linecap="round" d="M8 7l11 11M8 17L19 6"/></svg>
+  {% elif name == "star" %}
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" class="{{ class }}"><path stroke-linecap="round" stroke-linejoin="round" d="M12 3l2.6 5.6 6.1.7-4.5 4.2 1.2 6-5.4-3-5.4 3 1.2-6-4.5-4.2 6.1-.7L12 3z"/></svg>
+  {% endif %}
+{% endmacro %}
+
+{% macro eyebrow(index, label, dark=false) %}
+<div class="eyebrow {{ 'is-dark' if dark }}">
+  <span>[{{ index }}]</span>
+  <span class="eyebrow-line"></span>
+  <span class="ml-auto">{{ label | upper }}</span>
+</div>
+{% endmacro %}
+
+{% macro hero(eyebrowText, heading, subtitle, bgImage) %}
+<section class="relative overflow-hidden bg-primary-900">
+  <img src="{{ bgImage }}" alt="" class="absolute inset-0 h-full w-full object-cover">
+  <div class="absolute inset-0 bg-gradient-to-r from-primary-900 via-primary-900/85 to-primary-900/40"></div>
+  <div class="relative mx-auto max-w-container px-6 py-28 md:px-10 md:py-40">
+    <p class="inline-block rounded-full bg-cream-50/10 px-4 py-1.5 text-sm font-medium text-cream-50/90">{{ eyebrowText }} —</p>
+    <h1 class="mt-6 max-w-2xl font-display text-4xl font-semibold leading-tight text-cream-50 md:text-6xl">{{ heading | safe }}</h1>
+    <p class="mt-5 max-w-xl text-base leading-relaxed text-cream-50/85 md:text-lg">{{ subtitle }}</p>
+    <div class="mt-8 flex flex-wrap items-center gap-4">
+      <a href="{{ site.bookingUrl }}" class="btn-primary bg-cream-50 text-primary-900 hover:bg-cream-100">Book Now →</a>
+      <a href="{{ site.phoneHref }}" class="btn-ghost-light">{{ site.phone }}</a>
+    </div>
+  </div>
+</section>
+{% endmacro %}
+
+{% macro photoStrip(images) %}
+<div class="overflow-hidden bg-primary-900 py-16 md:py-20">
+  <div class="marquee-track flex gap-10 md:gap-11">
+    {% for src in images %}
+    <img src="{{ src }}" alt="" class="h-64 flex-none aspect-[3/2] rounded-[2.5rem] object-cover md:h-80">
+    {% endfor %}
+    {% for src in images %}
+    <img src="{{ src }}" alt="" aria-hidden="true" class="h-64 flex-none aspect-[3/2] rounded-[2.5rem] object-cover md:h-80">
+    {% endfor %}
+  </div>
+</div>
+{% endmacro %}
+
+{% macro serviceCard(iconName, title, description, href, banner=false) %}
+<div data-reveal class="rounded-2xl p-8 {{ 'bg-primary-700 text-cream-50' if banner else 'bg-white text-ink-900 shadow-sm' }}">
+  <div class="{{ 'text-cream-50' if banner else 'text-primary-600' }}">
+    {{ icon(iconName, "w-8 h-8") }}
+  </div>
+  <h3 class="mt-5 font-display text-xl font-medium">{{ title }}</h3>
+  <p class="mt-2 text-sm leading-relaxed {{ 'text-cream-50/80' if banner else 'text-ink-700' }}">{{ description }}</p>
+  <a href="{{ href }}" class="mt-5 inline-flex items-center gap-1 text-sm font-medium {{ 'text-cream-50' if banner else 'text-primary-700' }} hover:underline">
+    Learn More →
+  </a>
+</div>
+{% endmacro %}
+
+{% macro pillar(iconName, title, description) %}
+<div data-reveal class="rounded-2xl bg-white p-6 shadow-sm">
+  <div class="inline-flex h-11 w-11 items-center justify-center rounded-xl bg-primary-50 text-primary-600">{{ icon(iconName, "w-5 h-5") }}</div>
+  <h3 class="mt-4 font-display text-base font-semibold text-ink-900">{{ title }}</h3>
+  {% if description %}<p class="mt-2 text-sm leading-relaxed text-ink-700">{{ description }}</p>{% endif %}
+</div>
+{% endmacro %}
+
+{% macro clinicalCard(iconName, tag, title, description, href, variant="plain", photo="") %}
+{% if variant == "banner" %}
+<div data-reveal class="relative flex min-h-[260px] flex-col justify-end overflow-hidden rounded-2xl border border-cream-50/15 p-8">
+  <img src="{{ photo }}" alt="" class="absolute inset-0 h-full w-full object-cover">
+  <div class="absolute inset-0 bg-gradient-to-t from-primary-900 via-primary-900/75 to-primary-900/10"></div>
+  <div class="relative">
+    <h3 class="font-display text-2xl font-semibold text-cream-50">{{ title }}</h3>
+    <p class="mt-2 max-w-sm text-sm text-cream-50/85">{{ description }}</p>
+    <a href="{{ href }}" class="mt-4 inline-flex items-center gap-1 text-sm font-medium text-cream-50 hover:underline">Explore Services →</a>
+  </div>
+</div>
+{% else %}
+<div data-reveal class="flex min-h-[260px] flex-col justify-between rounded-2xl border border-cream-50/15 p-8">
+  <div class="inline-flex w-fit items-center gap-2 rounded-full bg-cream-50/10 px-3 py-1.5">
+    <span class="text-cream-50">{{ icon(iconName, "w-4 h-4") }}</span>
+    <span class="text-xs font-medium uppercase tracking-wide text-cream-50/80">{{ tag }}</span>
+  </div>
+  <div class="mt-6">
+    <h3 class="font-display text-2xl font-semibold text-cream-50">{{ title }}</h3>
+    <p class="mt-2 text-sm text-cream-50/80">{{ description }}</p>
+    <a href="{{ href }}" class="mt-4 inline-flex items-center gap-1 text-sm font-medium text-cream-50 hover:underline">Explore Services →</a>
+  </div>
+</div>
+{% endif %}
+{% endmacro %}
+
+{% macro optionCard(iconName, tag, title, subtitle, items, ctaLabel, ctaHref, primary=false) %}
+<div data-reveal class="rounded-2xl bg-white p-8 shadow-sm">
+  <div class="inline-flex items-center gap-2">
+    <span class="flex h-8 w-8 items-center justify-center rounded-full bg-primary-50 text-primary-600">{{ icon(iconName, "w-4 h-4") }}</span>
+    <span class="text-xs font-medium uppercase tracking-wide text-ink-500">{{ tag }}</span>
+  </div>
+  <h3 class="mt-4 font-display text-2xl font-semibold text-ink-900">{{ title }}</h3>
+  <p class="mt-1 text-sm text-ink-700">{{ subtitle }}</p>
+  <ul class="mt-5 flex flex-col gap-2">
+    {% for item in items %}
+    <li class="flex items-start gap-2 text-sm text-ink-700">
+      <span class="mt-0.5 text-primary-600">{{ icon("check", "w-4 h-4") }}</span>
+      <span>{{ item }}</span>
+    </li>
+    {% endfor %}
+  </ul>
+  <a href="{{ ctaHref }}" class="mt-6 {{ 'btn-primary' if primary else 'btn-outline' }}">{{ ctaLabel }} →</a>
+</div>
+{% endmacro %}
+
+{% macro ctaBand(heading, subtitle) %}
+<section class="section-pad bg-primary-900">
+  <div class="mx-auto max-w-container px-6 text-center md:px-10">
+    <h2 data-reveal class="font-display text-3xl font-medium text-cream-50 md:text-4xl">{{ heading }}</h2>
+    <p data-reveal class="mx-auto mt-4 max-w-xl text-cream-50/80">{{ subtitle }}</p>
+    <div data-reveal class="mt-8 flex flex-wrap items-center justify-center gap-4">
+      <a href="{{ site.bookingUrl }}" class="btn-primary bg-cream-50 text-primary-800 hover:bg-cream-100">Book Now</a>
+      <a href="{{ site.phoneHref }}" class="btn-ghost-light">{{ site.phone }}</a>
+    </div>
+  </div>
+</section>
+{% endmacro %}
+
+{% macro locationBand(index) %}
+<section class="section-pad bg-cream-100">
+  <div class="mx-auto max-w-container px-6 md:px-10">
+    {{ eyebrow(index, "Location") }}
+    <div class="mt-10 grid gap-10 md:grid-cols-2">
+      <div data-reveal>
+        <h2 class="font-display text-3xl font-medium text-ink-900 md:text-4xl">Serving Your City and Surrounding Communities</h2>
+        <p class="mt-4 text-ink-700">Our office is conveniently located and easy to reach — making quality dental care simple to fit into your routine.</p>
+        <p class="mt-6 text-sm font-medium uppercase tracking-[0.1em] text-primary-600">Our Address</p>
+        <p class="mt-2 font-display text-xl text-ink-900">{{ site.address.full }}</p>
+        <div class="mt-6 flex flex-wrap gap-4">
+          <a href="{{ site.phoneHref }}" class="btn-outline">{{ site.phone }}</a>
+          <a href="#" class="btn-primary">Get Directions</a>
+        </div>
+      </div>
+      <div data-reveal>
+        <p class="text-sm font-medium uppercase tracking-[0.1em] text-primary-600">Communities We Serve</p>
+        <p class="mt-2 text-ink-700">Whether you're new to the area or looking for a more personalized dental experience, we're here to help.</p>
+        <div class="mt-5 flex flex-wrap gap-2">
+          {% for c in site.communities %}
+          <span class="rounded-full bg-cream-50 px-4 py-2 text-sm text-ink-700">{{ c }}</span>
+          {% endfor %}
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+{% endmacro %}

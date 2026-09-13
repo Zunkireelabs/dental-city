@@ -1,0 +1,32 @@
+<header x-data="{ open: false }" class="sticky top-0 z-50 border-b border-ink-900/5 bg-cream-50/90 backdrop-blur">
+  <div class="mx-auto flex max-w-container items-center justify-between px-6 py-4 md:px-10">
+    <a href="/" class="font-display text-xl font-medium text-ink-900">{{ site.name }}</a>
+
+    <nav class="hidden items-center gap-8 md:flex">
+      {% for item in site.nav %}
+      <a href="{{ item.href }}" class="text-sm font-medium text-ink-700 transition-colors hover:text-primary-700">{{ item.label }}</a>
+      {% endfor %}
+    </nav>
+
+    <div class="hidden items-center gap-3 md:flex">
+      <a href="{{ site.phoneHref }}" class="text-sm font-medium text-ink-700 hover:text-primary-700">{{ site.phone }}</a>
+      <a href="{{ site.bookingUrl }}" class="btn-primary">Book Now</a>
+    </div>
+
+    <button type="button" class="md:hidden" @click="open = !open" aria-label="Toggle menu" :aria-expanded="open">
+      <span class="block h-0.5 w-6 bg-ink-900 transition-transform" :class="open && 'translate-y-1.5 rotate-45'"></span>
+      <span class="my-1.5 block h-0.5 w-6 bg-ink-900 transition-opacity" :class="open && 'opacity-0'"></span>
+      <span class="block h-0.5 w-6 bg-ink-900 transition-transform" :class="open && '-translate-y-1.5 -rotate-45'"></span>
+    </button>
+  </div>
+
+  <div x-collapse x-show="open" class="border-t border-ink-900/5 md:hidden">
+    <nav class="flex flex-col gap-1 px-6 py-4">
+      {% for item in site.nav %}
+      <a href="{{ item.href }}" class="rounded-md px-2 py-2 text-sm font-medium text-ink-700 hover:bg-primary-50 hover:text-primary-700">{{ item.label }}</a>
+      {% endfor %}
+      <a href="{{ site.phoneHref }}" class="rounded-md px-2 py-2 text-sm font-medium text-ink-700">{{ site.phone }}</a>
+      <a href="{{ site.bookingUrl }}" class="btn-primary mt-2 justify-center">Book Now</a>
+    </nav>
+  </div>
+</header>

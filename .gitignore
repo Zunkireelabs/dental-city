@@ -1,0 +1,7 @@
+node_modules/
+dist/
+src/assets/images/optimized/
+.DS_Store
+.env
+
+temp_ss/

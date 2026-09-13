@@ -1,0 +1,100 @@
+---
+layout: layouts/base.njk
+title: About
+description: Learn about Dental City's philosophy, team, and approach to comfortable, patient-first dental care.
+permalink: /about/
+---
+{% from "partials/macros.njk" import hero, eyebrow, serviceCard, pillar, ctaBand, locationBand, optionCard, photoStrip, icon with context %}
+
+{{ hero("Our Dental Practice", "<strong>Personalized Care</strong> You Can Feel Good About", "Get to know the team and philosophy behind Dental City.", "/assets/images/photos/chair-bw.jpg") }}
+
+{{ photoStrip(["/assets/images/photos/patient-chair.jpg", "/assets/images/photos/exam-closeup.jpg", "/assets/images/photos/smile-closeup.jpg", "/assets/images/photos/dentist-tools.jpg", "/assets/images/photos/equipment-table.jpg"]) }}
+
+<section class="section-pad">
+  <div class="mx-auto max-w-container px-6 md:px-10">
+    {{ eyebrow("01", "Our Philosophy") }}
+    <div class="mt-10 grid gap-10 md:grid-cols-2 md:gap-16">
+      <h2 data-reveal class="font-display text-3xl font-medium leading-snug text-ink-900 md:text-4xl">A Different Kind of Dental Experience</h2>
+      <div data-reveal class="flex flex-col gap-4 text-ink-700">
+        <p>Going to the dentist should feel comfortable, not clinical or rushed. At Dental City, we've built our practice around a simple idea: patients deserve to feel heard, respected, and genuinely cared for.</p>
+        <p>From the moment you walk in, our focus is on creating a welcoming, low-pressure environment where you can feel at ease — whether you're here for a routine visit or something more involved.</p>
+      </div>
+    </div>
+    <div class="mt-12 grid grid-cols-2 gap-4">
+      <img data-reveal src="/assets/images/photos/equipment-table.jpg" alt="" class="h-72 w-full rounded-[2.5rem] object-cover">
+      <img data-reveal src="/assets/images/photos/smile-closeup.jpg" alt="" class="h-72 w-full rounded-[2.5rem] object-cover">
+    </div>
+  </div>
+</section>
+
+<section class="section-pad bg-cream-100">
+  <div class="mx-auto max-w-container px-6 md:px-10">
+    {{ eyebrow("02", "Your Dentist") }}
+    <div class="mt-10 grid gap-10 md:grid-cols-2 md:gap-16">
+      <h2 data-reveal class="font-display text-3xl font-medium text-ink-900 md:text-4xl">Meet {{ site.doctor.name }}</h2>
+      <p data-reveal class="text-ink-700">At the center of our practice is {{ site.doctor.name }}, known for an honest approach and a commitment to comfortable, patient-focused care.</p>
+    </div>
+    <div class="mt-10 grid items-stretch gap-6 md:grid-cols-2">
+      <div data-reveal class="flex flex-col justify-between rounded-2xl bg-white p-8 shadow-sm">
+        <div>
+          <p class="text-sm font-medium text-ink-900">{{ site.doctor.name }}</p>
+          <p class="mt-3 text-sm leading-relaxed text-ink-700">{{ site.doctor.name }} believes great dentistry starts with building real relationships — taking the time to understand your concerns, explain your options clearly, and create treatment plans that feel right for you. Whether you're in for a routine cleaning or a more involved procedure, the goal is the same: care that feels considered, never rushed, and never one-size-fits-all.</p>
+        </div>
+        <a href="/doctor/" class="mt-6 inline-flex items-center gap-1 text-sm font-medium text-primary-700 hover:underline">Learn More →</a>
+      </div>
+      <img data-reveal src="/assets/images/dr-bidhan-shrestha.png" alt="{{ site.doctor.name }}, {{ site.doctor.title }}" class="h-full min-h-[280px] w-full rounded-[2.5rem] object-cover">
+    </div>
+  </div>
+</section>
+
+<section class="section-pad">
+  <div class="mx-auto max-w-container px-6 md:px-10">
+    {{ eyebrow("03", "Our Services") }}
+    <div class="mt-10 max-w-2xl">
+      <h2 data-reveal class="font-display text-3xl font-medium text-ink-900 md:text-4xl">Comprehensive Care, All in One Place</h2>
+      <p data-reveal class="mt-4 text-ink-700">We offer a full range of services under one roof — so you don't have to bounce between multiple offices.</p>
+    </div>
+    <div class="mt-10 grid gap-6 md:grid-cols-3">
+      {{ serviceCard("tooth", "General Dentistry", "Preventive care, exams, cleanings, and essential treatments.", "/services/") }}
+      {{ serviceCard("sparkle", "Cosmetic Dentistry", "Smile enhancements including whitening, veneers, and aligners.", "/services/") }}
+      {{ serviceCard("layers", "Restorative Dentistry", "Repair and restoration with crowns, fillings, and more.", "/services/") }}
+      {{ serviceCard("tool", "Oral Surgery", "Advanced procedures with a gentle, experienced approach.", "/services/") }}
+      {{ serviceCard("shield", "Specialty Services", "Targeted care including periodontal treatment and more.", "/services/") }}
+      {{ serviceCard("wand", "Dental Technology", "Modern tools for accurate, efficient care at every visit.", "/services/", true) }}
+    </div>
+  </div>
+</section>
+
+<section class="section-pad bg-cream-100">
+  <div class="mx-auto max-w-container px-6 md:px-10">
+    {{ eyebrow("04", "Our Approach") }}
+    <div class="mt-10 max-w-2xl">
+      <h2 data-reveal class="font-display text-3xl font-medium text-ink-900 md:text-4xl">A Focus on Comfort and Modern Care</h2>
+      <p data-reveal class="mt-4 text-ink-700">We combine a patient-first philosophy with modern dental technology to improve your experience at every visit.</p>
+    </div>
+    <div class="mt-10 grid gap-10 sm:grid-cols-2 md:grid-cols-4">
+      {{ pillar("shield", "A Clean, Welcoming Environment", "Our office is designed to put you at ease from the moment you walk in.") }}
+      {{ pillar("wand", "Advanced Tools for Efficient Care", "Modern dental technology for accurate diagnoses and better outcomes.") }}
+      {{ pillar("chat", "Clear Communication, No Surprises", "We explain everything before, during, and after your care.") }}
+      {{ pillar("clock", "A Team That Respects Your Time", "Efficient appointments that honor your comfort and your schedule.") }}
+    </div>
+  </div>
+</section>
+
+<section class="section-pad">
+  <div class="mx-auto max-w-container px-6 md:px-10">
+    {{ eyebrow("05", "Convenience") }}
+    <div class="mt-10 max-w-2xl">
+      <h2 data-reveal class="font-display text-3xl font-medium text-ink-900 md:text-4xl">Care That Fits Your Life</h2>
+      <p data-reveal class="mt-4 text-ink-700">We understand that dental care needs to work with your schedule, your budget, and your comfort level.</p>
+    </div>
+    <div class="mt-10 grid gap-6 md:grid-cols-2">
+      {{ optionCard("shield", "Membership Plan", "In-House Plan", "Ideal for patients without insurance.", ["Preventive care coverage", "Discounts on additional treatments", "No waiting periods or deductibles"], "Learn More", "#", true) }}
+      {{ optionCard("wand", "Financing", "Flexible Payments", "Multiple financing options available.", ["Cherry financing", "CareCredit accepted", "Affordable monthly plans"], "Financial Options", "#") }}
+    </div>
+  </div>
+</section>
+
+{{ locationBand("06") }}
+
+{{ ctaBand("Experience the Difference at Dental City", "If you're looking for a dental office that prioritizes comfort, clarity, and personalized care, we invite you to experience the difference for yourself.") }}

@@ -1,0 +1,33 @@
+{
+  "name": "Dental City",
+  "tagline": "Modern Dental Care in Your Neighborhood",
+  "url": "http://localhost:8080",
+  "description": "Dental City offers comfortable, comprehensive dental care — from routine checkups to advanced treatments — in a welcoming, patient-first environment.",
+  "phone": "(555) 010-1234",
+  "phoneHref": "tel:+15550101234",
+  "email": "hello@dentalcity.example",
+  "address": {
+    "line1": "123 Main Street, Suite 100",
+    "city": "Your City",
+    "state": "ST",
+    "zip": "00000",
+    "full": "123 Main Street, Suite 100, Your City, ST 00000"
+  },
+  "hours": [
+    { "days": "Mon – Thu", "time": "7:30 AM – 4:30 PM" },
+    { "days": "Fri", "time": "7:30 AM – 12:00 PM" },
+    { "days": "Sat – Sun", "time": "Closed" }
+  ],
+  "communities": ["Your City", "Riverside", "Lakewood", "Fairview", "Brookhaven", "Cedar Falls"],
+  "bookingUrl": "#book-now",
+  "doctor": {
+    "name": "Dr. Bidhan Shrestha",
+    "title": "Lead Dentist, Dental City"
+  },
+  "nav": [
+    { "label": "Home", "href": "/" },
+    { "label": "About", "href": "/about/" },
+    { "label": "Services", "href": "/services/" },
+    { "label": "Doctor", "href": "/doctor/" }
+  ]
+}

@@ -1,0 +1,102 @@
+---
+layout: layouts/base.njk
+title: Our Doctor
+description: Meet Dr. Bidhan Shrestha, lead dentist at Dental City — honest, patient-focused dental care.
+permalink: /doctor/
+---
+{% from "partials/macros.njk" import hero, eyebrow, pillar, clinicalCard, ctaBand, locationBand, photoStrip, icon with context %}
+
+{{ hero("Your Dentist", "<strong>Meet</strong> " + site.doctor.name, "Honest, patient-focused dental care. A comfortable, thoughtful approach to making every patient feel heard and at ease.", "/assets/images/photos/dentist-patient.jpg") }}
+
+{{ photoStrip(["/assets/images/photos/smile-closeup.jpg", "/assets/images/photos/exam-closeup.jpg", "/assets/images/photos/patient-chair.jpg", "/assets/images/photos/dentist-tools.jpg", "/assets/images/photos/clinic-equipment.jpg"]) }}
+
+<section class="section-pad">
+  <div class="mx-auto max-w-container px-6 md:px-10">
+    {{ eyebrow("01", "About " + site.doctor.name) }}
+    <div class="mt-10 grid gap-10 md:grid-cols-2 md:gap-16">
+      <h2 data-reveal class="font-display text-3xl font-medium leading-snug text-ink-900 md:text-4xl">A Dentist Who Puts Patients First</h2>
+      <div data-reveal class="flex flex-col gap-4 text-ink-700">
+        <p>Choosing a dentist isn't just about services — it's about trust, comfort, and feeling confident in your care.</p>
+        <p>{{ site.doctor.name }} is known for an honest, thoughtful approach and a commitment to making every patient feel heard and at ease. Whether you're visiting for a routine checkup or a more involved procedure, the focus is always the same: deliver high-quality care in a way that feels comfortable and manageable.</p>
+      </div>
+    </div>
+    <div class="mt-12 grid grid-cols-2 gap-4">
+      <img data-reveal src="/assets/images/photos/smile-closeup.jpg" alt="" class="h-72 w-full rounded-[2.5rem] object-cover">
+      <img data-reveal src="/assets/images/dr-bidhan-shrestha.png" alt="{{ site.doctor.name }}, {{ site.doctor.title }}" class="h-72 w-full rounded-[2.5rem] object-cover object-top">
+    </div>
+  </div>
+</section>
+
+<section class="section-pad bg-cream-100">
+  <div class="mx-auto max-w-container px-6 md:px-10">
+    {{ eyebrow("02", "Philosophy") }}
+    <div class="grid gap-10 md:grid-cols-[1.1fr_0.9fr] md:gap-16">
+      <div>
+        <div class="mt-10 max-w-xl">
+          <h2 data-reveal class="font-display text-3xl font-medium text-ink-900 md:text-4xl">A Personalized Approach to Every Smile</h2>
+          <p data-reveal class="mt-4 text-ink-700">{{ site.doctor.name }} believes dentistry should never feel rushed or one-size-fits-all. Every patient has different needs, goals, and concerns — and your care should reflect that.</p>
+        </div>
+        <div class="mt-10 grid gap-8 sm:grid-cols-2">
+          {{ pillar("chat", "Listens & Understands", "Takes time to listen and understand your concerns before recommending any treatment.") }}
+          {{ pillar("shield", "Clear Communication", "Explains treatment options clearly and honestly so you always know what to expect.") }}
+          {{ pillar("clock", "Personalized Plans", "Creates customized treatment plans that fit your lifestyle — not a one-size-fits-all approach.") }}
+          {{ pillar("heart", "Comfort First", "Prioritizes your comfort at every step, with a warm, reassuring demeanor.") }}
+        </div>
+        <p data-reveal class="mt-10 max-w-xl text-ink-700">You'll always know what to expect — and you'll never feel pressured into treatment.</p>
+      </div>
+      <div data-reveal class="mt-10 flex flex-col gap-4">
+        <img src="/assets/images/dr-bidhan-shrestha.png" alt="{{ site.doctor.name }}, {{ site.doctor.title }}" class="mx-auto aspect-[4/5] w-full max-w-sm rounded-[2.5rem] object-cover">
+        <div class="rounded-2xl bg-primary-900 p-6 text-cream-50">
+          <p class="font-display text-lg font-medium uppercase tracking-wide">{{ site.doctor.name }}</p>
+          <p class="mt-1 text-sm text-cream-50/75">{{ site.doctor.title }}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section-pad bg-primary-900">
+  <div class="mx-auto max-w-container px-6 md:px-10">
+    {{ eyebrow("03", "Clinical Focus", true) }}
+    <div class="mt-10 max-w-2xl">
+      <h2 data-reveal class="font-display text-3xl font-medium text-cream-50 md:text-4xl">Comprehensive Care, Backed by Experience</h2>
+      <p data-reveal class="mt-4 text-cream-50/80">As the lead provider at Dental City, {{ site.doctor.name }} offers a full range of dental services, allowing patients to receive consistent care in one place.</p>
+    </div>
+    <div class="mt-10 grid gap-6 md:grid-cols-3">
+      {{ clinicalCard("shield", "Preventive", "Dental Exams & Cleanings", "Preventive care to keep your smile healthy with regular checkups and professional cleanings.", "/services/", "banner", "/assets/images/photos/exam-closeup.jpg") }}
+      {{ clinicalCard("sparkle", "Cosmetic", "Teeth Whitening & Veneers", "Cosmetic enhancements like professional whitening and dental veneers for a brighter, more confident smile.", "/services/") }}
+      {{ clinicalCard("layers", "Restorative", "Crowns, Fillings & Implants", "Restorative treatments including dental crowns, fillings, and implant-supported dentures.", "/services/") }}
+    </div>
+  </div>
+</section>
+
+<section class="section-pad bg-cream-100">
+  <div class="mx-auto max-w-container px-6 md:px-10">
+    {{ eyebrow("04", "Your Experience") }}
+    <div class="mt-10 max-w-2xl">
+      <h2 data-reveal class="font-display text-3xl font-medium text-ink-900 md:text-4xl">A Focus on Comfort and Modern Dentistry</h2>
+      <p data-reveal class="mt-4 text-ink-700">{{ site.doctor.name }} combines clinical expertise with modern dental technology to create a better patient experience.</p>
+    </div>
+    <div class="mt-10 grid gap-8 sm:grid-cols-2 md:grid-cols-4">
+      {{ pillar("layers", "Advanced Imaging", "Advanced diagnostics through modern dental technology.") }}
+      {{ pillar("clock", "Precise Planning", "Efficient, accurate treatment planning for predictable results.") }}
+      {{ pillar("shield", "Clean & Welcoming", "A modern, inviting environment designed for your comfort.") }}
+      {{ pillar("check", "Respects Your Time", "A team that prioritizes your comfort and schedule.") }}
+    </div>
+  </div>
+</section>
+
+{{ locationBand("05") }}
+
+<section class="section-pad">
+  <div class="mx-auto max-w-container px-6 md:px-10">
+    <div data-reveal class="rounded-3xl bg-primary-900 p-10 text-cream-50 md:p-14">
+      <p class="text-sm font-medium uppercase tracking-[0.12em] text-cream-50/70">A Dentist You Can Trust</p>
+      <h3 class="mt-3 font-display text-2xl font-medium md:text-3xl">Feel Comfortable With Your Care</h3>
+      <p class="mt-3 max-w-2xl text-cream-50/80">Whether you've stayed consistent with dental visits or it's been a while, {{ site.doctor.name }} and the team at Dental City are here to help you move forward — without judgment, pressure, or stress.</p>
+      <a href="{{ site.bookingUrl }}" class="btn-primary mt-6 bg-cream-50 text-primary-800 hover:bg-cream-100">Request an Appointment</a>
+    </div>
+  </div>
+</section>
+
+{{ ctaBand("Schedule Your Visit with " + site.doctor.name, "If you're looking for a dentist who prioritizes comfort, clarity, and personalized care, we invite you to experience the difference.") }}
