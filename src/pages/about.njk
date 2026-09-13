@@ -4,9 +4,9 @@ title: About
 description: Learn about Dental City's philosophy, team, and approach to comfortable, patient-first dental care.
 permalink: /about/
 ---
-{% from "partials/macros.njk" import hero, eyebrow, serviceCard, pillar, ctaBand, locationBand, optionCard, photoStrip, icon with context %}
+{% from "partials/macros.njk" import hero, eyebrow, serviceCard, numberedPillar, ctaBand, locationBand, optionCard, photoStrip, icon with context %}
 
-{{ hero("Our Dental Practice", "<strong>Personalized Care</strong> You Can Feel Good About", "Get to know the team and philosophy behind Dental City.", "/assets/images/photos/chair-bw.jpg") }}
+{{ hero("Our Dental Practice", "<strong>Personalized Care</strong> You Can Feel Good About", "Get to know the team and philosophy behind Dental City.", "/assets/images/photos/chair-bw.jpg", [{"label": "Home", "href": "/"}, {"label": "About"}]) }}
 
 {{ photoStrip(["/assets/images/photos/patient-chair.jpg", "/assets/images/photos/exam-closeup.jpg", "/assets/images/photos/smile-closeup.jpg", "/assets/images/photos/dentist-tools.jpg", "/assets/images/photos/equipment-table.jpg"]) }}
 
@@ -55,12 +55,12 @@ permalink: /about/
       <p data-reveal class="mt-4 text-ink-700">We offer a full range of services under one roof — so you don't have to bounce between multiple offices.</p>
     </div>
     <div class="mt-10 grid gap-6 md:grid-cols-3">
-      {{ serviceCard("tooth", "General Dentistry", "Preventive care, exams, cleanings, and essential treatments.", "/services/") }}
-      {{ serviceCard("sparkle", "Cosmetic Dentistry", "Smile enhancements including whitening, veneers, and aligners.", "/services/") }}
-      {{ serviceCard("layers", "Restorative Dentistry", "Repair and restoration with crowns, fillings, and more.", "/services/") }}
-      {{ serviceCard("tool", "Oral Surgery", "Advanced procedures with a gentle, experienced approach.", "/services/") }}
-      {{ serviceCard("shield", "Specialty Services", "Targeted care including periodontal treatment and more.", "/services/") }}
-      {{ serviceCard("wand", "Dental Technology", "Modern tools for accurate, efficient care at every visit.", "/services/", true) }}
+      {{ serviceCard("tooth", "General Dentistry", "Preventive care, exams, cleanings, and essential treatments.", "/services/", "/assets/images/photos/exam-closeup.jpg") }}
+      {{ serviceCard("sparkle", "Cosmetic Dentistry", "Smile enhancements including whitening, veneers, and aligners.", "/services/", "/assets/images/photos/smile-closeup.jpg") }}
+      {{ serviceCard("layers", "Restorative Dentistry", "Repair and restoration with crowns, fillings, and more.", "/services/", "/assets/images/photos/equipment-table.jpg") }}
+      {{ serviceCard("tool", "Oral Surgery", "Advanced procedures with a gentle, experienced approach.", "/services/", "/assets/images/photos/dentist-patient.jpg") }}
+      {{ serviceCard("shield", "Specialty Services", "Targeted care including periodontal treatment and more.", "/services/", "/assets/images/photos/chair-bw.jpg") }}
+      {{ serviceCard("wand", "Dental Technology", "Modern tools for accurate, efficient care at every visit.", "/services/", "/assets/images/photos/clinic-equipment.jpg") }}
     </div>
   </div>
 </section>
@@ -72,11 +72,11 @@ permalink: /about/
       <h2 data-reveal class="font-display text-3xl font-medium text-ink-900 md:text-4xl">A Focus on Comfort and Modern Care</h2>
       <p data-reveal class="mt-4 text-ink-700">We combine a patient-first philosophy with modern dental technology to improve your experience at every visit.</p>
     </div>
-    <div class="mt-10 grid gap-10 sm:grid-cols-2 md:grid-cols-4">
-      {{ pillar("shield", "A Clean, Welcoming Environment", "Our office is designed to put you at ease from the moment you walk in.") }}
-      {{ pillar("wand", "Advanced Tools for Efficient Care", "Modern dental technology for accurate diagnoses and better outcomes.") }}
-      {{ pillar("chat", "Clear Communication, No Surprises", "We explain everything before, during, and after your care.") }}
-      {{ pillar("clock", "A Team That Respects Your Time", "Efficient appointments that honor your comfort and your schedule.") }}
+    <div class="mt-10 grid gap-6 sm:grid-cols-2">
+      {{ numberedPillar("01", "A Clean, Welcoming Environment", "Our office is designed to put you at ease from the moment you walk in.") }}
+      {{ numberedPillar("02", "Advanced Tools for Efficient Care", "Modern dental technology for accurate diagnoses and better outcomes.") }}
+      {{ numberedPillar("03", "Clear Communication, No Surprises", "We explain everything before, during, and after your care.") }}
+      {{ numberedPillar("04", "A Team That Respects Your Time", "Efficient appointments that honor your comfort and your schedule.") }}
     </div>
   </div>
 </section>

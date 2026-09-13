@@ -36,10 +36,11 @@
 </div>
 {% endmacro %}
 
-{% macro hero(eyebrowText, heading, subtitle, bgImage) %}
+{% macro hero(eyebrowText, heading, subtitle, bgImage, crumbs=[]) %}
 <section class="relative overflow-hidden bg-primary-900">
   <img src="{{ bgImage }}" alt="" class="absolute inset-0 h-full w-full object-cover">
   <div class="absolute inset-0 bg-gradient-to-r from-primary-900 via-primary-900/85 to-primary-900/40"></div>
+  {% if crumbs %}{{ breadcrumb(crumbs) }}{% endif %}
   <div class="relative mx-auto max-w-container px-6 py-28 md:px-10 md:py-40">
     <p class="inline-block rounded-full bg-cream-50/10 px-4 py-1.5 text-sm font-medium text-cream-50/90">{{ eyebrowText }} —</p>
     <h1 class="mt-6 max-w-2xl font-display text-4xl font-semibold leading-tight text-cream-50 md:text-6xl">{{ heading | safe }}</h1>
@@ -65,16 +66,19 @@
 </div>
 {% endmacro %}
 
-{% macro serviceCard(iconName, title, description, href, banner=false) %}
-<div data-reveal class="rounded-2xl p-8 {{ 'bg-primary-700 text-cream-50' if banner else 'bg-white text-ink-900 shadow-sm' }}">
-  <div class="{{ 'text-cream-50' if banner else 'text-primary-600' }}">
-    {{ icon(iconName, "w-8 h-8") }}
+{% macro serviceCard(iconName, title, description, href, photo="") %}
+<div data-reveal class="overflow-hidden rounded-2xl bg-white text-ink-900 shadow-sm">
+  {% if photo %}<img src="{{ photo }}" alt="" class="h-40 w-full object-cover">{% endif %}
+  <div class="p-8">
+    <div class="text-primary-600">
+      {{ icon(iconName, "w-8 h-8") }}
+    </div>
+    <h3 class="mt-5 font-display text-xl font-medium">{{ title }}</h3>
+    <p class="mt-2 text-sm leading-relaxed text-ink-700">{{ description }}</p>
+    <a href="{{ href }}" class="mt-5 inline-flex items-center gap-1 text-sm font-medium text-primary-700 hover:underline">
+      Learn More →
+    </a>
   </div>
-  <h3 class="mt-5 font-display text-xl font-medium">{{ title }}</h3>
-  <p class="mt-2 text-sm leading-relaxed {{ 'text-cream-50/80' if banner else 'text-ink-700' }}">{{ description }}</p>
-  <a href="{{ href }}" class="mt-5 inline-flex items-center gap-1 text-sm font-medium {{ 'text-cream-50' if banner else 'text-primary-700' }} hover:underline">
-    Learn More →
-  </a>
 </div>
 {% endmacro %}
 
@@ -83,6 +87,25 @@
   <div class="inline-flex h-11 w-11 items-center justify-center rounded-xl bg-primary-50 text-primary-600">{{ icon(iconName, "w-5 h-5") }}</div>
   <h3 class="mt-4 font-display text-base font-semibold text-ink-900">{{ title }}</h3>
   {% if description %}<p class="mt-2 text-sm leading-relaxed text-ink-700">{{ description }}</p>{% endif %}
+</div>
+{% endmacro %}
+
+{% macro numberedPillar(number, title, description) %}
+<div data-reveal class="rounded-2xl bg-white p-6 shadow-sm">
+  <div class="inline-flex h-9 w-9 items-center justify-center rounded-full bg-primary-50 text-sm font-medium text-primary-700">{{ number }}</div>
+  <h3 class="mt-4 font-display text-base font-semibold text-ink-900">{{ title }}</h3>
+  {% if description %}<p class="mt-2 text-sm leading-relaxed text-ink-700">{{ description }}</p>{% endif %}
+</div>
+{% endmacro %}
+
+{% macro breadcrumb(items) %}
+<div class="relative z-10 mx-auto max-w-container px-6 pt-6 md:px-10">
+  <nav class="flex flex-wrap items-center gap-2 text-xs font-medium uppercase tracking-wide text-cream-50/70">
+    {% for item in items %}
+    {% if not loop.first %}<span>›</span>{% endif %}
+    {% if item.href %}<a href="{{ item.href }}" class="hover:text-cream-50">{{ item.label }}</a>{% else %}<span class="text-cream-50/90">{{ item.label }}</span>{% endif %}
+    {% endfor %}
+  </nav>
 </div>
 {% endmacro %}
 
@@ -145,30 +168,41 @@
 </section>
 {% endmacro %}
 
-{% macro locationBand(index) %}
+{% macro locationBand(index, trustHeading="", trustText="") %}
 <section class="section-pad bg-cream-100">
   <div class="mx-auto max-w-container px-6 md:px-10">
     {{ eyebrow(index, "Location") }}
-    <div class="mt-10 grid gap-10 md:grid-cols-2">
-      <div data-reveal>
-        <h2 class="font-display text-3xl font-medium text-ink-900 md:text-4xl">Serving Your City and Surrounding Communities</h2>
-        <p class="mt-4 text-ink-700">Our office is conveniently located and easy to reach — making quality dental care simple to fit into your routine.</p>
-        <p class="mt-6 text-sm font-medium uppercase tracking-[0.1em] text-primary-600">Our Address</p>
-        <p class="mt-2 font-display text-xl text-ink-900">{{ site.address.full }}</p>
+    <div class="mt-10 max-w-2xl">
+      <h2 data-reveal class="font-display text-3xl font-medium text-ink-900 md:text-4xl">Serving Your City and Surrounding Communities</h2>
+      <p data-reveal class="mt-4 text-ink-700">Our office is conveniently located and easy to reach — making quality dental care simple to fit into your routine.</p>
+    </div>
+    <div class="mt-10 grid gap-6 md:grid-cols-2">
+      <div data-reveal class="rounded-2xl border border-primary-900/15 bg-primary-900 p-8 text-cream-50">
+        <p class="text-xs font-medium uppercase tracking-[0.1em] text-cream-50/70">Our Address</p>
+        <p class="mt-3 font-display text-2xl text-cream-50">{{ site.address.full }}</p>
         <div class="mt-6 flex flex-wrap gap-4">
-          <a href="{{ site.phoneHref }}" class="btn-outline">{{ site.phone }}</a>
-          <a href="#" class="btn-primary">Get Directions</a>
+          <a href="{{ site.phoneHref }}" class="btn-ghost-light">{{ site.phone }}</a>
+          <a href="#" class="btn-primary bg-cream-50 text-primary-900 hover:bg-cream-100">Get Directions →</a>
         </div>
       </div>
-      <div data-reveal>
-        <p class="text-sm font-medium uppercase tracking-[0.1em] text-primary-600">Communities We Serve</p>
-        <p class="mt-2 text-ink-700">Whether you're new to the area or looking for a more personalized dental experience, we're here to help.</p>
+      {% if trustHeading %}
+      <div data-reveal class="rounded-2xl bg-primary-900 p-8 text-cream-50">
+        <p class="text-xs font-medium uppercase tracking-[0.1em] text-cream-50/70">A Dentist You Can Trust</p>
+        <h3 class="mt-3 font-display text-2xl font-medium">{{ trustHeading }}</h3>
+        <p class="mt-3 text-cream-50/80">{{ trustText }}</p>
+        <a href="{{ site.bookingUrl }}" class="btn-primary mt-6 bg-cream-50 text-primary-900 hover:bg-cream-100">Request an Appointment →</a>
+      </div>
+      {% else %}
+      <div data-reveal class="rounded-2xl bg-white p-8 shadow-sm">
+        <p class="text-xs font-medium uppercase tracking-[0.1em] text-primary-600">Communities We Serve</p>
+        <p class="mt-3 text-ink-700">Whether you're new to the area or looking for a more personalized dental experience, we're here to help.</p>
         <div class="mt-5 flex flex-wrap gap-2">
           {% for c in site.communities %}
-          <span class="rounded-full bg-cream-50 px-4 py-2 text-sm text-ink-700">{{ c }}</span>
+          <span class="rounded-full bg-cream-100 px-4 py-2 text-sm text-ink-700">{{ c }}</span>
           {% endfor %}
         </div>
       </div>
+      {% endif %}
     </div>
   </div>
 </section>

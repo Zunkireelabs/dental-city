@@ -5,7 +5,7 @@ description: Dental City offers comfortable, comprehensive dental care in a welc
 ---
 {% from "partials/macros.njk" import hero, eyebrow, serviceCard, pillar, ctaBand, locationBand, photoStrip, optionCard, icon with context %}
 
-{{ hero("Your City Dentist", "Comfortable, Modern Care at <strong>Dental City</strong>", "Experience personalized dental care with a team that puts your comfort first — from routine visits to advanced treatment, all in one place.", "/assets/images/photos/office-hero.jpg") }}
+{{ hero("Your City Dentist", "Comfortable, Modern Care at <strong>Dental City</strong>", "Experience personalized dental care with a team that puts your comfort first — from routine visits to advanced treatment, all in one place.", "/assets/images/photos/office-hero.jpg", [{"label": "Home"}]) }}
 
 {{ photoStrip(["/assets/images/photos/patient-chair.jpg", "/assets/images/photos/exam-closeup.jpg", "/assets/images/photos/dentist-tools.jpg", "/assets/images/photos/clinic-equipment.jpg", "/assets/images/photos/equipment-table.jpg"]) }}
 
@@ -68,12 +68,12 @@ description: Dental City offers comfortable, comprehensive dental care in a welc
       <p data-reveal class="mt-4 text-ink-700">We offer a full range of services under one roof — so you don't have to bounce between multiple offices.</p>
     </div>
     <div class="mt-10 grid gap-6 md:grid-cols-3">
-      {{ serviceCard("tooth", "General Dentistry", "Preventive care, exams, cleanings, and essential treatments.", "/services/") }}
-      {{ serviceCard("sparkle", "Cosmetic Dentistry", "Smile enhancements including whitening, veneers, and aligners.", "/services/") }}
-      {{ serviceCard("layers", "Restorative Dentistry", "Repair and restoration with crowns, fillings, and more.", "/services/") }}
-      {{ serviceCard("tool", "Oral Surgery", "Advanced procedures with a gentle, experienced approach.", "/services/") }}
-      {{ serviceCard("shield", "Specialty Services", "Targeted care including periodontal treatment and more.", "/services/") }}
-      {{ serviceCard("wand", "Dental Technology", "Modern tools for accurate, efficient care at every visit.", "/services/", true) }}
+      {{ serviceCard("tooth", "General Dentistry", "Preventive care, exams, cleanings, and essential treatments.", "/services/", "/assets/images/photos/exam-closeup.jpg") }}
+      {{ serviceCard("sparkle", "Cosmetic Dentistry", "Smile enhancements including whitening, veneers, and aligners.", "/services/", "/assets/images/photos/smile-closeup.jpg") }}
+      {{ serviceCard("layers", "Restorative Dentistry", "Repair and restoration with crowns, fillings, and more.", "/services/", "/assets/images/photos/equipment-table.jpg") }}
+      {{ serviceCard("tool", "Oral Surgery", "Advanced procedures with a gentle, experienced approach.", "/services/", "/assets/images/photos/dentist-patient.jpg") }}
+      {{ serviceCard("shield", "Specialty Services", "Targeted care including periodontal treatment and more.", "/services/", "/assets/images/photos/chair-bw.jpg") }}
+      {{ serviceCard("wand", "Dental Technology", "Modern tools for accurate, efficient care at every visit.", "/services/", "/assets/images/photos/clinic-equipment.jpg") }}
     </div>
   </div>
 </section>
